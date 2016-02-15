@@ -48,7 +48,7 @@ class AdvSphinxConnection extends CApplicationComponent
     public function init()
     {
         if (!class_exists('SphinxClient', false)) {
-            include_once(dirname(__DIR__) . '/sphinxapi/SphinxClient.php');
+            include_once(__DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'SphinxClient.php');
         }
 
         $this->_client = new SphinxClient;
@@ -88,7 +88,7 @@ class AdvSphinxConnection extends CApplicationComponent
     public function createCommand()
     {
         if (!class_exists('AdvSphinxCommand', false)) {
-            include_once(dirname(__DIR__) . '/sphinx/AdvSphinxCommand.php');
+            include_once(__DIR__ . DIRECTORY_SEPARATOR . 'AdvSphinxCommand.php');
         }
         $this->resetClient();
         return new AdvSphinxCommand($this);
